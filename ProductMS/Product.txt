@@ -1,0 +1,35 @@
+drop database productdb;
+create schema `productdb`;
+use `productdb`;
+
+create table product(
+prodid integer NOT NULL AUTO_INCREMENT primary key,
+productname varchar(50),
+price double,
+stock integer,
+description varchar(500),
+image varchar(200),
+sellerid Integer,
+category varchar(50),
+subcategory varchar(50),
+productrating integer
+);
+
+insert into product  (productname, price, stock, description, image, sellerid, category, subcategory, productrating) values('HP Laptop',42490,10,'HP 15 11th Gen Intel Core i3 Processor','https://m.media-amazon.com/images/I/81pG0gZywML._SL1500_.jpg',1,'Laptop','HP',4);
+insert into product (productname, price, stock, description, image, sellerid, category, subcategory, productrating) values('CANON Camera',30999,5,'Canon EOS 1500D 24.1 Digital SLR Camera','https://m.media-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg',2,'Camera','DSLR',5);
+insert into product (productname, price, stock, description, image, sellerid, category, subcategory, productrating) values('HONOR Magic Watch',10000,20,'14-Days Battery, SpO2, BT Calling & Music Playback, AMOLED Touch Screen','https://m.media-amazon.com/images/I/81TmdO2S6iL._SL1500_.jpg',3,'Smart Watch','HONOR',4);
+
+select * from product;
+
+create table subscribedproduct(
+buyerid varchar(50),
+prodid varchar(50), 
+primary key(buyerid,prodid),
+quantity integer
+);
+
+insert into subscribedproduct values('B201','P101',1);
+insert into subscribedproduct values('B202','P102',2);
+insert into subscribedproduct values('B203','P103',3);
+
+select * from subscribedproduct;
